@@ -14,17 +14,21 @@ function renderButtons() {
 
   $("#addButton").on("click", function(event) {
     var newAnimal = $("#inputForm").val().trim();
+    var newButton = $("<button>");
     
-
     animals.push(newAnimal);
+    newButton.attr("dataAnimal", newAnimal);
+    newButton.attr("class", "clickMe")
+    newButton.text(newAnimal);
+    $("#buttons").append(newButton);
 
-    renderButtons();
+    //renderButtons();
 
 });
 renderButtons();
 
 
-$(".clickMe").on("click", function() {    
+$("body").on("click", ".clickMe", function() {    
 
     var animal = $(this).attr("dataAnimal");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -54,17 +58,17 @@ $(".clickMe").on("click", function() {
                 animalImage.attr("data-state", "still");
                 animalImage.attr("data-animate", results[i].images.fixed_height.url);
                 animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                animalImage.attr("class", "gif")
+                animalImage.attr("class", "gif col-md-8");
+                
 
                 //adding gifs to DOM
                 gifDiv.prepend(p);
                 gifDiv.prepend(animalImage);
                 $("#gifPlace").prepend(gifDiv);
             }  
-
-            //making gifs clickable to change their state from still to animated
-            $(".gif").on("click", function() {
-                    
+        }
+        $("body").on("click",".gif", function() {
+              console.log("clicked")      
             var state = $(this).attr("data-state")
         
               if (state === "still") {
@@ -78,8 +82,7 @@ $(".clickMe").on("click", function() {
                   $(this).attr("data-state", "still")
                 }
         });
-        
-      }
+            //making gifs clickable to change their state from still to animated        
     });
 
 

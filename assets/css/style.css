@@ -1,0 +1,41 @@
+.clickMe {
+margin: 5px;
+border-radius: 10px; 
+}
+
+#addButton {
+border-radius: 10px;
+background-color: darkgray;
+margin-top: 5px;
+}
+
+.container {
+    margin: 20px
+}
+
+#gifPlace {
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
+    margin: 10px;
+    padding: 5px;
+
+    
+}
+
+#topRow {
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkgray;
+    margin:10px;
+}
+
+#addBox {
+
+    padding: 25px;
+    background-color: lightsteelblue;
+}
+
+#inputLabel {
+    font-weight: bold;
+}
